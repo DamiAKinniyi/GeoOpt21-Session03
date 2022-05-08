@@ -26,12 +26,16 @@ def meshFromPoints(pts):
 
     for p in pts:
         m.Vertices.Add(p.X, p.Y, p.Z)
+    print(len(m.Vertices))
 
     
-    m.Faces.AddFace(0,1,2,2) #triangular meshes repeat the last number!
+    #m.Faces.AddFace(0,1,2,3) #triangular meshes repeat the last number!
+    for i in range(len(m.Vertices)-3):
+        m.Faces.AddFace(i, i+1, i+2, i+3)
+    print(m.Faces[i])
 
-    print (m.Faces[0])
-    print (m.Faces.TriangleCount)
+    #print (m.Faces[0])
+    #print (m.Faces.TriangleCount)
 
 
     return m
@@ -68,8 +72,10 @@ def gridMesh():
 
     print(mesh.Faces.Count)
 
-    for i in range(mesh.Faces.Count):
-        print(mesh.Faces[i])
+    #for i in range(mesh.Faces.Count):
+        #print(mesh.Faces[i])
+    print([mesh.Faces[i] for i in range(mesh.Faces.Count)])
+    
 
     return mesh
 

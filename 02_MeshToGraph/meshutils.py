@@ -8,6 +8,7 @@ def getAdjancentFaceList(mesh):
     for i in range(mesh.Faces.Count):
         sets.append( set(mesh.Faces[i]) )
         
+        
     allAdj = []
 
     for i in range(len(sets)):
@@ -16,9 +17,10 @@ def getAdjancentFaceList(mesh):
             if sets[i] is not sets[j]:
                 inter = sets[i].intersection( sets[j])
                 if len(inter) ==2:
+                    #adj.append(i) #I added this line of code
                     adj.append(j) 
         allAdj.append(adj)
-    return allAdj      
+    return allAdj    
 
 
 def getAdjancentFaces(mesh, MeshFaceIndex):

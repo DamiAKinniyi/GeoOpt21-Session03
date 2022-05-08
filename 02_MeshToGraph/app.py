@@ -8,13 +8,10 @@ import meshpath as mp
 import meshutils as mu
 import drawutils as du
 
-#MESH WALKER COMPONENT ---------------------
-
-#global variables for meshwalker component
-walkerGraph = None
+#MESH GRAPH COMPONENT ---------------------
 @hops.component(
-    "/meshwalker",
-    name = "meshwalker",
+    "/meshToGraph",
+    name = "meshToGraph",
     inputs=[
         hs.HopsMesh("Input Mesh", "M", "Mesh"),
         hs.HopsBoolean("Plot", "P", "Plot", optional=True)
